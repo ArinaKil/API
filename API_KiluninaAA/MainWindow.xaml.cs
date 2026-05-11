@@ -20,6 +20,7 @@ namespace API_KiluninaAA
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<classes.Groups> AllGroups = new List<classes.Groups>();
         public MainWindow()
         {
             InitializeComponent();
