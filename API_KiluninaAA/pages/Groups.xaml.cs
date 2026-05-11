@@ -31,5 +31,12 @@ namespace API_KiluninaAA.pages
             foreach(classes.Groups Group in MainWindow.init.AllGroups)
                 parentGroup.Items.Add(Group);
         }
+
+        private void FindGroups(object sender, TextChangedEventArgs e)
+        {
+            parentGroup.Items.Clear();
+            foreach (classes.Groups Group in MainWindow.init.AllGroups.FindAll(x=>x.Name.ToLower().Contains(find.Text.ToLower())))
+                parentGroup.Items.Add(Group);
+        }
     }
 }
