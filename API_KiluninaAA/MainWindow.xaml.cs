@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace API_KiluninaAA
 {
@@ -22,18 +23,10 @@ namespace API_KiluninaAA
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<classes.Groups> AllGroups = new List<classes.Groups>();
+        public List<classes.Groups> AllGroups = classes.Groups.AllGroups();
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        public string GttpQuery(string url)
-        {
-            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(url);
-            HttpWebResponse HttpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            StreamReader sr = new StreamReader(HttpWebResponse.GetResponseStream());
-            return sr.ReadToEnd();
         }
     }
 }

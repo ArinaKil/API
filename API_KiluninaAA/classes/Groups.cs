@@ -15,5 +15,22 @@ namespace API_KiluninaAA.classes
             Id = id;
             Name = name;
         }
+
+        public static List<Groups> AllGroups()
+        {
+            List<Groups> allGroups = new List<Groups>();
+
+            string Data = Common.HttpQuery("http://localhost/api/index.php?groups");
+            string[] DataGroups = Data.Split(';');
+            foreach (string DataGroup in DataGroups)
+            {
+                allGroups.Add(new Groups(
+                    Convert.ToInt32(DataGroup.Split(':')[0]),
+                    DataGroup.Split(':')[1]
+                    ));
+            }
+
+            return allGroups;
+        }
     }
 }
