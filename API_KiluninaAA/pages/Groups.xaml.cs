@@ -23,6 +23,13 @@ namespace API_KiluninaAA.pages
         public Groups()
         {
             InitializeComponent();
+            LoadData();
+        }
+        public void LoadData()
+        {
+            parentGroup.Items.Clear();
+            foreach(classes.Groups Group in MainWindow.init.AllGroups)
+                parentGroup.Items.Add(Group);
         }
     }
 }

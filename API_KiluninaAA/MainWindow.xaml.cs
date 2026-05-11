@@ -23,10 +23,15 @@ namespace API_KiluninaAA
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow init { get; set; }
         public List<classes.Groups> AllGroups = classes.Groups.AllGroups();
         public MainWindow()
         {
             InitializeComponent();
+            init = this;
+            OpenPages(new pages.Groups());
         }
+        public void OpenPages(Page page) =>
+            frame.Navigate(page);
     }
 }
